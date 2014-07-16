@@ -1,15 +1,17 @@
 <?php
 
-require 'config.php';
+require 'wiringpi.php';
 
 $pins = Array(0, 1, 2, 3, 4, 5, 6, 7, 17, 18, 19, 20);
 
-if ($_GET['c'] == 'pm') {
-	wiringpi::pinMode($_GET['p'], $_GET['v']);
-}
+if (isset($_GET['c'])) {
+	if ($_GET['c'] == 'pm') {
+		wiringpi::pinMode($_GET['p'], $_GET['v']);
+	}
 
-if ($_GET['c'] == 'dw') {
-	wiringpi::digitalWrite($_GET['p'], $_GET['v']);
+	if ($_GET['c'] == 'dw') {
+		wiringpi::digitalWrite($_GET['p'], $_GET['v']);
+	}
 }
 
 ?>
